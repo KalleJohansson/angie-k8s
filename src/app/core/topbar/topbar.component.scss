@@ -1,0 +1,15 @@
+.topnav {
+    display: flex;
+    justify-content: space-around;
+    text-transform: capitalize;
+    list-style: none;
+}
+
+.topnav a {
+    text-decoration: none;
+    transition: .4s;
+    color: #d6712c;
+    &:hover {
+        text-decoration: underline;
+    }
+}
