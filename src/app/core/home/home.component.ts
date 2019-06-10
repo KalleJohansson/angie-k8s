@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       imgid: '204x204'},
       {name: 'mazariner',
       imgid: '205x205'},
-      {name: 'winerbröd',
+      {name: 'weinerbröd',
       imgid: '206x206'},
       {name: 'flens',
       imgid: '207x207'}
