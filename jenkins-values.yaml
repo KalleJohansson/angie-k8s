@@ -8,13 +8,13 @@ master:
   hostName: angie-k8s
   serviceType: ClusterIP
   installPlugins:
-  #    - kubernetes:1.23.0
-  #    - workflow-aggregator:2.6
-  #    - credentials-binding:1.20
-  #    - git:4.1.0
-  #    - pipeline-github-lib:1.0
+      - kubernetes:1.23.0
+      - workflow-aggregator:2.6
+      - credentials-binding:1.20
+      - git:4.1.0
+      - pipeline-github-lib:1.0
       ##- ghprb:1.42.0
-  #    - blueocean:1.21.0
+      - blueocean:1.21.0
 
 
   scriptApproval:

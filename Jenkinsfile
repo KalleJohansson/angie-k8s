@@ -7,11 +7,12 @@ pipeline {
         sh "yarn install"
       }
     }
-    stage('Bygg') {
+
+    /* stage('Bygg') {
       steps {
         echo 'Bygger'
       }
-    }
+    } */
 
     stage('Test') {
       steps {
