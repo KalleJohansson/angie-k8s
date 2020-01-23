@@ -28,14 +28,14 @@ COPY --from=0 /usr/local/bin bin/
 COPY --from=0 /usr/local/include include/
 
 #copies the built webapp from build image
-#RUN groupadd Utvecklare && \
-#    useradd -g Utvecklare -s /bin/bash node && \
-#    mkdir -p /app/dist -p /app/logs && \
-#    chown -R node:Utvecklare /app
+RUN groupadd Utvecklare && \
+    useradd -g Utvecklare -s /bin/bash node && \
+    mkdir -p /app/dist -p /app/logs && \
+    chown -R node:Utvecklare /app
 WORKDIR /app/dist
 COPY --from=0 /app/dist .
 WORKDIR /app
 
-EXPOSE 3000
-#USER node
+EXPOSE 4000
+USER node
 CMD ["node", "dist/server"]

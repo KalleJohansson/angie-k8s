@@ -67,8 +67,7 @@ app.engine(
 
 // creates an accesslogger with apache format
 // app.use(morgan('combined', { stream: accessLogStream }));
-/* app.use(morgan('combined'));
-app.use('/api/runor/', proxy('http://ul-eapprunor01.testraa.se:8080')); */
+/* app.use(morgan('combined')); */
 
 // set up the client logger
 /*const clientLogger = winston.createLogger({
@@ -123,6 +122,6 @@ app.get('*', (req, res) => {
 
 // Start up the Node server
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`[${new Date().toISOString()}] Runor server started @ 0.0.0.0:${PORT}`);
+  //console.log(`[${new Date().toISOString()}] Runor server started @ 0.0.0.0:${PORT}`);
   //console.log(`[${new Date().toISOString()}] Access log available @ ${LOG_FOLDER}/access.log`);
 });
