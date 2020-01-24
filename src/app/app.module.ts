@@ -15,7 +15,7 @@ import { EnvServiceProvider } from './env.service.provider';
     HomeComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [EnvServiceProvider],

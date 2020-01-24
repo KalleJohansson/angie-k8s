@@ -4,15 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "angie": {
+      "root": "",
+      "sourceRoot": "src",
       "projectType": "application",
+      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "angie",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -21,11 +21,17 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": false,
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/env.js"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
@@ -57,8 +63,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angie:build",
-            "proxyConfig": "./proxy.config.js"
+            "browserTarget": "angie:build"
           },
           "configurations": {
             "production": {
@@ -77,20 +82,37 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
-        },
+        }
+      }
+    },
+    "e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -101,6 +123,15 @@
             "production": {
               "devServerTarget": "angie:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "server": {
