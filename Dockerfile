@@ -1,13 +1,7 @@
-#FROM centos/httpd-24-centos7
-#RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
-#COPY dist/angie/ /opt/rh/httpd24/root/var/www/html/
-#EXPOSE 8080
-FROM alpine:3.11.3
+FROM centos:centos7
 WORKDIR /node
-#RUN apk add --no-cache curl
-#RUN curl -o node.tar.xz https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
-#RUN tar --strip-components 1 -xvf node.tar.xz -C /usr/local
-RUN apk add --update nodejs nodejs-npm
+RUN curl -o node.tar.xz https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
+RUN tar --strip-components 1 -xvf node.tar.xz -C /usr/local
 
 WORKDIR /app
 COPY src ./src
@@ -20,7 +14,7 @@ RUN npm install -g yarn
 RUN yarn && yarn build:ssr
 
 # Bygg imagen som ska köras
-FROM alpine:3.11.3
+FROM centos:centos7
 WORKDIR /usr/local
 
 # copies Node from build image
