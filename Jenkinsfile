@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'node --version'
         //sh "npm install -g yarn"
-        sh "yarn install"
+        sh 'yarn install'
       }
     }
 
