@@ -3,18 +3,22 @@
 pipeline {
   agent any
   stages {
-    /* stage('Prepare') {
-      steps {
-        sh "npm install -g yarn"
-        sh "yarn install"
+    stage('Prepare') {
+      agent {
+        docker 'node:alpine'
       }
-    } */
+      steps {
+        sh 'node --version'
+        //sh "npm install -g yarn"
+        //sh "yarn install"
+      }
+    }
 
-    stage('Bygg') {
+    /* stage('Bygg') {
       steps {
         echo 'Bygger'
       }
-    }
+    } */
 
     stage('Test') {
       steps {
