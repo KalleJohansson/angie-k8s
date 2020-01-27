@@ -9,10 +9,10 @@ pipeline {
       }
       steps {
         sh 'node --version'
-        sh 'pwd'
-        sh 'ls -la'
-        /* sh 'yarn install'
-        sh 'yarn' */
+        /* sh 'pwd'
+        sh 'ls -la' */
+        sh 'yarn && yarn build'
+        /* sh 'yarn build' */
       }
     }
 
