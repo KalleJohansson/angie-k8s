@@ -1,0 +1,27 @@
+{
+  "app": {
+    "name": "angie-k8s",
+    "replicas": "3",
+    "cpu": "10m",
+    "memory": "128Mi",
+    "test": true,
+    "hostname": "angie-k8s.localhost"
+  },
+  "container_repo": {
+    "host": "artifactory.raa.se",
+    "master_acct": "kajoh",
+    "alt_acct": "kajoh",
+    "jenkins_creds_id": "artifactory_creds",
+    "repo": "angie-k8s",
+    "dockeremail": ".",
+    "dockerfile": "./",
+    "image_scanning": false
+  },
+  "pipeline": {
+      "enabled": true,
+      "debug": false,
+      "library": {
+        "branch": "dev"
+      }
+  }
+}
